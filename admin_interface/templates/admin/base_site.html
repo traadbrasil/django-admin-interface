@@ -167,7 +167,10 @@ admin-interface
 <h1 id="site-name">
     <a href="{% url 'admin:index' %}">
         {% if theme.logo_visible %}
-            {% if theme.logo %}
+            {% if theme.static_logo_path %}
+                <img class="logo" style="display:none;" src="{{ theme.static_logo_path }}" {% if theme.logo.width %}width="{{ theme.logo.width }}"{% endif %} {% if theme.logo.height %}height="{{ theme.logo.height }}"{% endif %}>
+                {% endif %}
+                {% if theme.logo %}
             <img class="logo" style="display:none;" src="{{ theme.logo.url }}" {% if theme.logo.width %}width="{{ theme.logo.width }}"{% endif %} {% if theme.logo.height %}height="{{ theme.logo.height }}"{% endif %}>
             {% else %}
             <img class="logo default" style="display:none;" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="104" height="36">
