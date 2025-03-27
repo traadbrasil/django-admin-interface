@@ -9,7 +9,7 @@ def check_installed_app(app, max_dj_version=None):
     if max_dj_version is None:
         if app not in installed_apps:
             raise ImproperlyConfigured(
-                f"'{app}' is required, add it to settings.INSTALLED_APPS."
+                "'{}' is required, " "add it to settings.INSTALLED_APPS.".format(app)
             )
     elif dj_version < max_dj_version:
         if app not in installed_apps:
@@ -23,6 +23,19 @@ def check_installed_app(app, max_dj_version=None):
                 "'{}' is no more required since django {}.{}, "
                 "remove it from settings.INSTALLED_APPS.".format(app, *max_dj_version)
             )
+
+
+def check_settings(setting_attribute):
+    """
+    Check if the setting_attribute is set in the settings module.
+    """
+
+    if not hasattr(settings, setting_attribute):
+        raise ImproperlyConfigured(
+            "You must set the {} setting in your settings module.".format(
+                setting_attribute
+            )
+        )
 
 
 def check_installed_apps():
