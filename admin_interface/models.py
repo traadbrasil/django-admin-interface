@@ -6,7 +6,9 @@ from django.dispatch import receiver
 from django.utils.encoding import force_str
 from django.utils.translation import gettext_lazy as _
 from django.conf import settings
-import os
+import os, logging
+
+logger = logging.getLogger(__name__)
 
 from .cache import del_cached_active_theme
 
@@ -417,6 +419,7 @@ class Theme(models.Model):
 
     @property
     def static_logo_relative_url(self):
+        logger.info(f"Teste relative path: {os.path.relpath(self.static_logo_path, settings.STATIC_ROOT)}")
         return os.path.relpath(self.static_logo_path, settings.STATIC_ROOT)
 
     def set_active(self):
