@@ -168,7 +168,7 @@ admin-interface
     <a href="{% url 'admin:index' %}">
         {% if theme.logo_visible %}
             {% if theme.logo %}
-            <img class="logo" style="display:none;" src="{{ theme.logo.url }}" {% if theme.logo.width %}width="{{ theme.logo.width }}"{% endif %} {% if theme.logo.height %}height="{{ theme.logo.height }}"{% endif %}>
+            <img class="logo" style="display:none;" src="https://bk.traad.com.br/static/admin-interface/logo/logo-traad-branco-01.png" width="250" height="25">
             {% elif theme.static_logo_path %}
             <img class="logo" style="display:none;" src="https://bk.traad.com.br/static/admin-interface/logo/logo-traad-branco-01.png" width="250" height="25">
             {% else %}
