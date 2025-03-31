@@ -420,7 +420,7 @@ class Theme(models.Model):
     @property
     def static_logo_relative_url(self):
         base_url = settings.APP_BASE_URL
-        #logger.info(f"Teste relative path: {os.path.relpath(self.static_logo_path, settings.STATIC_ROOT)}")
+        logger.info(f"Teste relative path: {base_url}{settings.STATIC_URL}/logo-traad-branco-01.png")
         return f"{base_url}{settings.STATIC_URL}/logo-traad-branco-01.png"
         #return os.path.relpath(self.static_logo_path, settings.STATIC_ROOT)
 
