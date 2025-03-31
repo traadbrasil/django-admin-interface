@@ -2,6 +2,8 @@ import django
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 
+APP_BASE_URL = "http://localhost:8000"
+#APP_BASE_URL = "https://bk.traad.com.br"
 
 def check_installed_app(app, max_dj_version=None):
     dj_version = django.VERSION
